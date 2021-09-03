@@ -1,0 +1,49 @@
+/* Content from w3 school for styling the thumbnail for picture
+source: https://www.w3schools.com/howto/howto_css_thumbnail.asp */
+img, #bob {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+  }
+  
+  /* Add a hover effect (blue shadow) */
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+
+  #books {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #books td, #books th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #books tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #books tr:hover {background-color: #ddd;}
+  
+  #books th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+/* end of w3 school help */
+
+.col {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+li, b {
+    text-align: left;
+    padding: 1px;   
+}
