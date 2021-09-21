@@ -37,7 +37,9 @@ Link for w3 school: https://www.w3schools.com/css/tryit.asp?filename=trycss_tabl
     color: white;
   }
 /* end of w3 school help */
-
+#pageFormat{
+  background-color: azure;
+}
 .col {
     text-align: center;
 }
@@ -53,6 +55,7 @@ li, b {
 }
 .bookTitles, #title {
   text-align: center;
+  padding: 10px 0px 10px 0px;
 }
 figcaption {
   font-size: 8px;
@@ -62,4 +65,7 @@ a:link, a:visited {
 }
 #nav {
   color: ivory;
+}
+.topping {
+  padding-top: 20px;
 }
