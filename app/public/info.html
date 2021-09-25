@@ -47,8 +47,18 @@
             <li><b>Birthdate:</b> {{prettyBirthday}} </li>
             <li><b>I am:</b> {{result.dob.age}} years old!</li>
             <li><b>Gender:</b> {{result.gender}}</li>
-            <li><b>Email:</b> <a v-bind:href="'mailto:' + result.email">Gmail</a></a></li>
+            <li><b>Email:</b> <a v-bind:href="'mailto:' + result.email">Email Me!</a></a></li>
         </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- Using boostraps custom text-center command to center the button-->
+          <div class="col text-center">
+          <form v-on:submit.prevent="fetchUserData">
+            <button type="submit">Refresh</button>
+          </form>
+      </div>
       </div>
     </div>
 </div>
