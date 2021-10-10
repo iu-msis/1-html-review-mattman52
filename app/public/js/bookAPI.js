@@ -2,7 +2,7 @@
 const SomeApp = {
     data() {
       return {
-          books: []
+          books: [],
       }
     },
     computed: {},
@@ -16,33 +16,18 @@ const SomeApp = {
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                this.students = responseJson;
+                this.books = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
             })
-        },
-        fetchOfferData(s) {
-            console.log("Fetching offer data for ", s);
-            fetch('/api/offer/?student=' + s.id)
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.offers = responseJson;
-            })
-            .catch( (err) => {
-                console.error(err);
-            })
-            .catch( (error) => {
-                console.error(error);
-            });
         }
     },
     created() {
-        this.fetchStudentData();
+        this.fetchBookData();
     }
   
   }
   
-  Vue.createApp(SomeApp).mount('#offerApp');
+  Vue.createApp(SomeApp).mount('#booksApp');
   
