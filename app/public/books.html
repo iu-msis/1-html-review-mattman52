@@ -36,73 +36,72 @@
       </ul>
     </div>
   </nav>
-<h2 class="bookTitles">Welcome to My Book Page! </h2>
-<div id="booksApp" class="container">
-<!-- Sortable-boostrap and data-sortable is from sortable: https://github.hubspot.com/sortable/docs/welcome/-->
-  <table class="sortable-bootstrap" id="books" data-sortable>
-    <thead>
-      <tr>
-          <th>
-              Title
+  <h2 class="bookTitles">Welcome to My Book Page! </h2>
+  <div id="booksApp" class="container">
+  <!-- Sortable-boostrap and data-sortable is from sortable: https://github.hubspot.com/sortable/docs/welcome/-->
+    <table class="sortable-bootstrap" id="books" data-sortable>
+      <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+              Author
           </th>
           <th>
-            Author
-        </th>
-        <th>
-            Year Published
-        </th>
-        <th>
-            Publisher
-        </th>
-        <th>
-            Page Count
-        </th>
-        <th>
-            MSRP (USD)
-        </th> 
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="book in books">
-        <td>{{ book.title }}</td>
-        <td>{{ book.authorFirst }} {{book.authorLast }}</td>
-        <td>{{ book.publisher }}</td>
-        <td>{{ book.year }}</td>
-        <td>{{ book.pageCount }}</td>
-        <td>{{ prettyDollar(book.msrp) }}</td>
-      </tr>
-</tbody>
-  </table>
+              Year Published
+          </th>
+          <th>
+              Publisher
+          </th>
+          <th>
+              Page Count
+          </th>
+          <th>
+              MSRP (USD)
+          </th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="book in books">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>{{ book.year }}</td>
+          <td>{{ book.pageCount }}</td>
+          <td>{{ prettyDollar(book.msrp) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="bookTitles topping">Add Your Book to the List!</h3>
+    <form v-on:submit.prevent="postNewBook">
+      <div class="form-group">
+        <label id="formTitle" for="formGroupBookTitle">Book Title</label>
+        <input type="text" v-model="bookForm.title" class="form-control" id="title" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label id="formTitle"  for="formGroupAuthor">Author</label>
+        <input type="text" v-model="bookForm.author" class="form-control" id="author" placeholder="Author">
+      </div>
+      <div class="form-group">
+        <label  id="formTitle" for="formGroupYear">Year Published</label>
+        <input type="number" v-model="bookForm.year" class="form-control" id="year" placeholder="Year">
+      </div>
+      <div class="form-group">
+        <label id="formTitle"  for="formGroupPublisher">Publisher</label>
+        <input type="text" v-model="bookForm.publisher" class="form-control" id="publisher" placeholder="Publisher">
+      </div>
+      <div class="form-group">
+        <label id="formTitle"  for="formGroupPage">Page Count</label>
+        <input type="number" v-model="bookForm.pageCount" class="form-control" id="pageCount" placeholder="Count (number)">
+      </div>
+      <div class="form-group">
+        <label id="formTitle"  for="formGroupPrice">MSRP(USD)</label>
+        <input type="number" v-model="bookForm.msrp" class="form-control" id="msrp" placeholder="Dollar (NO $)">
+      </div>
+    <button class="btn btn-primary" type="submit">Add Book!</button>
+    </form>
   </div>
-  <h3 class="bookTitles topping">Add Your Book to the List!</h3>
-  <form>
-    <div class="form-group">
-      <label id="formTitle" for="formGroupBookTitle">Book Title</label>
-      <input type="text" class="form-control" id="formGroupBookTitle" placeholder="The Giver">
-    </div>
-    <div class="form-group">
-      <label id="formTitle"  for="formGroupAuthor">Author</label>
-      <input type="text" class="form-control" id="formGroupAuthor" placeholder="Lois Lowry">
-    </div>
-    <div class="form-group">
-      <label  id="formTitle" for="formGroupYear">Year Published</label>
-      <input type="number" class="form-control" id="formGroupYear" placeholder="1993">
-    </div>
-    <div class="form-group">
-      <label id="formTitle"  for="formGroupPublisher">Publisher</label>
-      <input type="text" class="form-control" id="formGroupPublisher" placeholder="Houghton Mifflin">
-    </div>
-    <div class="form-group">
-      <label id="formTitle"  for="formGroupPage">Page Count</label>
-      <input type="number" class="form-control" id="formGroupPage" placeholder="192">
-    </div>
-    <div class="form-group">
-      <label id="formTitle"  for="formGroupPrice">MSRP(USD)</label>
-      <input type="number" class="form-control" id="formGroupPrice" placeholder="19.99">
-    </div>
-   <button class="btn btn-primary" type="submit">Add Book!</button>
-  </form>
-  
   <script src="js/bookApi.js"></script>
 </body>
 </html>
