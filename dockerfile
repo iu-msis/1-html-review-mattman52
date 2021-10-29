@@ -1,17 +1,8 @@
-FROM php:7.4-apache
+FROM mcr.microsoft.com/appsvc/dotnetcore:lts
 
-LABEL maintainer="Matt Cummings"
+ENV PORT 8080
+EXPOSE 8080
 
-RUN docker-php-ext-install pdo_mysql
+ENV ASPNETCORE_URLS "http://*:${PORT}"
 
-#Set the working directory in the image
-WORKDIR /srv/app
-
-#Copy our app folder to the image
-COPY app /srv/app
-
-# PHP configuration
-COPY docker/php/php.ini /usr/local/etc/php/php.ini
-
-# Apache configuration
-COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
+ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
