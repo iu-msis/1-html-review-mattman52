@@ -63,18 +63,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="book in books">
+        <tr v-for="book in books" v-on:click="selectBook(book)"
+        :class="['book', {selected: selectedBook && book.id == selectedBook.id}]">
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
           <td>{{ book.publisher }}</td>
           <td>{{ book.year }}</td>
           <td>{{ book.pageCount }}</td>
           <td>{{ prettyDollar(book.msrp) }}</td>
+          <td>
+            <button type="button" class="btn btn-outline-secondary btn-sm"
+              v-on:click="selectBook(book)">Edit</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm"
+              v-on:click="postDeleteBook(book)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
     <h3 class="bookTitles topping">Add Your Book to the List!</h3>
-    <form v-on:submit.prevent="postNewBook">
+    <form v-on:submit.prevent="postBook">
       <div class="form-group">
         <label id="formTitle" for="formGroupBookTitle">Book Title</label>
         <input type="text" v-model="bookForm.title" class="form-control" id="title" placeholder="Title">
@@ -99,7 +106,10 @@
         <label id="formTitle"  for="formGroupPrice">MSRP(USD)</label>
         <input type="number" v-model="bookForm.msrp" class="form-control" id="msrp" placeholder="Dollar (NO $)">
       </div>
-    <button class="btn btn-primary" type="submit">Add Book!</button>
+      <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add" : "Edit" }} Book</button>
+      <button type="button" class="btn btn-outline-secondary" 
+        v-if="selectedBook"
+        v-on:click="resetBookForm">Cancel</button>
     </form>
   </div>
   <script src="js/bookApi.js"></script>
